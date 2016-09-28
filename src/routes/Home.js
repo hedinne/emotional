@@ -16,7 +16,7 @@ export default class Home extends Component {
       <div>
         <Helmet title="Home" />
         <Segment>
-          <h1>Nothing feel's like ::ffff!</h1>
+          <h1>Woop Woop</h1>
         </Segment>
       </div>
     );

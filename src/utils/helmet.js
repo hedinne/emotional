@@ -6,7 +6,7 @@ export default {
     lang: 'en',
   },
   title: 'Home',
-  titleTemplate: 'Ueno - %s',
+  titleTemplate: 'Emotional Intelligence - %s',
   defaultTemplate: '???',
   meta: [{
     name: 'msapplication-TileColor',
