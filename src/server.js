@@ -13,10 +13,13 @@ import routes, { NotFound } from './routes';
 import Store from './store';
 import color from 'cli-color'; // eslint-disable-line
 
+
 const release = (process.env.NODE_ENV === 'production');
 const port = (parseInt(process.env.PORT, 10) || 3000) - !release;
 const app = express();
 const debugsw = (...args) => debug(color.yellow('server-wait'), ...args);
+const api = require('instagram-node').instagram();
+
 
 // Set view engine
 app.use(compression());
@@ -92,6 +95,38 @@ app.get('*', (req, res) => {
     req.on('close', cancel);
   });
 });
+
+// Instagram token
+api.use({
+  client_id: 'cf5856ebccbb459aaba3e64adc37b54b',
+  client_secret: 'b5eeaea536d149b090b220e85f004e88',
+});
+
+const redirectUri = 'http://localhost:3000/oauth';
+
+exports.authorize_user = (req, res) => {
+  console.log('authorize_user keyrir');
+  res.redirect(api.get_authorization_url(redirectUri, { scope: ['likes'], state: 'a state' }));
+
+};
+
+exports.handleauth = (req, res) => {
+  console.log('handleauth keyrir');
+
+  api.authorize_user(req.query.code, redirectUri, (err, result) => {
+    if (err) {
+      console.log(err.body);
+      res.send("Didn't work");
+    } else {
+      console.log('Yay! Access token is %o', result.access_token);
+      res.send('You made it!!');
+    }
+  });
+};
+
+app.get('/oauth', exports.authorize_user);
+
+app.get('/oauth', exports.handleauth);
 
 // Create HTTP Server
 const server = http.createServer(app);

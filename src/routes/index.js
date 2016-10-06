@@ -8,7 +8,9 @@ import Planet from 'routes/Planet';
 import About from 'routes/lazy/About';
 import NotFound from 'routes/NotFound';
 import loadRoute from 'utils/load-route';
+import Oauth from 'routes/Oauth';
 import Privacy from 'routes/lazy/Privacy';
+import Test from 'routes/Test';
 
 export {
   NotFound,
@@ -19,6 +21,8 @@ export default (
     <IndexRoute component={Home} />
     <Route path="planets" component={Planets} />
     <Route path="planet/:id" component={Planet} />
+    <Route path="Oauth" component={Oauth} />
+    <Route path="Test" component={Test} />
     <Route path="about" getComponent={loadRoute(About)} />
     <Route path="privacy" getComponent={loadRoute(Privacy)} />
     <Route path="*" component={NotFound} />,
