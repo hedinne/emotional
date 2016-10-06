@@ -19,6 +19,9 @@ export default class Oauth extends Component {
     } catch (e) {
       console.log('Try and catch ', e);
     }
+
+    this.getSelf(location.hash.split('token=').pop());
+    this.getSelfResent(location.hash.split('token=').pop());
   }
 
   getToken() {
@@ -27,40 +30,44 @@ export default class Oauth extends Component {
     });
   }
 
-  getSelf() {
-    axios.get(`https://api.instagram.com/v1/users/self/?access_token=${this.state.token}`)
+  getSelf(token) {
+    axios.get(`https://api.instagram.com/v1/users/self/?access_token=${token}`)
     .then((response) => (
       this.setState({
-        data: response.data.data,
-      })))
+        selfData: response.data.data,
+      })
+    ))
     .catch((error) => (console.log(error)));
   }
 
-  getSelfResent() {
+  getSelfResent(token) {
     console.log('Resent:');
-    axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${this.state.token}`, 10)
+    axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${token}`, 10)
     .then((response) => (
-      console.log('Nýtt efni: ', response)))
+      console.log('Nýtt efni: ', response)
+    )).then((response) => (
+      this.setState({
+        resent: response,
+      })
+    ))
     .catch((error) => (console.log(error)));
   }
-
 
   render() {
     const {
       token,
-      data,
+      selfData,
+      resent,
     } = this.state;
 
-    if (token) {
-      this.getSelf();
-      this.getSelfResent();
-    }
+    console.log(selfData);
+    console.log(resent);
 
     return (
       <Segment>
-        <h1>Vííí</h1>
+        <h1>You are now logged in</h1>
         {token ? (<h4>Token: {token}</h4>) : null}
-        {data && (<img src={data.profile_picture} alt="Profile pic" />)}
+        {selfData && (<img src={selfData.profile_picture} alt="Profile pic" />)}
       </Segment>
     );
   }
