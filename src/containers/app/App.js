@@ -36,7 +36,7 @@ export default class App extends Component {
         <Header>
           <Navigation>
             <IndexLink to="/">Home</IndexLink>
-            <Link to="/planets">Planets</Link>
+            <Link to="/privacy">Privacy</Link>
             <Link to="/about">About</Link>
           </Navigation>
         </Header>
