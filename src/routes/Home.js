@@ -3,7 +3,6 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { getUri } from 'utils/apiWorker';
 
-
 /**
  * Home route component
  */

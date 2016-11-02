@@ -9,7 +9,6 @@ import About from 'routes/lazy/About';
 import NotFound from 'routes/NotFound';
 import loadRoute from 'utils/load-route';
 
-
 export {
   NotFound,
 };
