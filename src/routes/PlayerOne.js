@@ -16,10 +16,6 @@ export default class ClassName extends Component {
     }
   }
 
-  componentDidUpdate() {
-
-  }
-
   storeToken() {
     Store.instaToken = location.hash.split('token=').pop();
   }
