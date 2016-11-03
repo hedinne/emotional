@@ -3,21 +3,26 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import Store from 'store/Basic';
-// import { getUsers } from 'utils/apiWorker';
+import { getSelf, getImages } from 'utils/apiWorker';
+import LoaderImage from 'assets/images/loader.svg';
+import s from './less/PlayerOne.less';
 
 @observer
 export default class ClassName extends Component {
 
   componentDidMount() {
-    if (!Store.InstaToken) {
+    if (!Store.instaToken) {
       this.storeToken();
     }
   }
 
-  storeToken() {
-    Store.InstaToken = location.hash.split('token=').pop();
+  componentDidUpdate() {
+
   }
 
+  storeToken() {
+    Store.instaToken = location.hash.split('token=').pop();
+  }
 
   /**
    * PLayerOne
@@ -25,15 +30,30 @@ export default class ClassName extends Component {
    */
   render() {
 
+    if (!Store.selfInfo && Store.instaToken) {
+      getSelf();
+    }
+
     return (
       <div>
         <Helmet title="Player One" />
         <Segment>
-          <h2>Find player one.</h2>
-          <h2>Token: {Store.InstaToken}</h2>
+          {Store.selfInfo ? (
+            <div>
+              <h2>Halló {Store.selfInfo.data.full_name}!</h2>
+              <h3>Má bjóða þér að greina myndirnar þínar?</h3>
+              <button onChange={getImages()}>Hell yeah!</button>
 
-          <input type="search" name="googlesearch" />
-          <input type="submit" />
+              {Store.images && (
+                <img src={Store.images.data[1].images.standard_resolution.url} alt="Hestur" />
+              )}
+            </div>
+          )
+          : (
+            <div className={s.loader}>
+              <img src={LoaderImage} alt="Loader" />
+            </div>
+          )}
         </Segment>
       </div>
     );

@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { getUri } from 'utils/apiWorker';
+import Store from 'store/Basic';
+import { Link } from 'react-router';
+
 
 /**
  * Home route component
@@ -13,6 +16,17 @@ export default class Home extends Component {
    * @return {Component}
    */
   render() {
+
+    if (Store.instaToken) {
+      return (
+        <div>
+          <Helmet title="Home" />
+          <Segment>
+            <Link to="/playerone">To player one</Link>
+          </Segment>
+        </div>
+      );
+    }
 
     return (
       <div>

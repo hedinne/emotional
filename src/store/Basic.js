@@ -1,7 +1,9 @@
 import { observable, autorun } from 'mobx';
 
 class BasicStore {
-  @observable InstaToken;
+  @observable instaToken;
+  @observable selfInfo;
+  @observable images;
 }
 
 const store = new BasicStore();
@@ -9,5 +11,7 @@ const store = new BasicStore();
 export default store;
 
 autorun(() => {
-  console.log('InstaToken: %o', store.InstaToken);
+  console.log('instaToken: ', store.instaToken);
+  console.log('selfInfo: ', store.selfInfo);
+  console.log('images: ', store.images);
 });
