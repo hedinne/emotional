@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Segment from 'components/segment';
-import { getUri } from 'utils/apiWorker';
-import Store from 'store/Basic';
+import { getUrl } from 'utils/apiWorker';
+import st from 'store/Basic';
 import { Link } from 'react-router';
 import { observer } from 'mobx-react';
 
@@ -19,7 +19,7 @@ export default class Home extends Component {
    */
   render() {
 
-    if (Store.instaToken) {
+    if (st.instaTokenLoaded) {
       return (
         <div>
           <Helmet title="Home" />
@@ -34,11 +34,11 @@ export default class Home extends Component {
       <div>
         <Helmet title="Home" />
         <Segment>
-          {getUri() && (
-            <a href={getUri()}>
-              <h1>Start</h1>
+          <h2>
+            <a href={getUrl()}>
+              Byrja!
             </a>
-          )}
+          </h2>
         </Segment>
       </div>
     );

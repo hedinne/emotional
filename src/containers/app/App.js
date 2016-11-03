@@ -6,6 +6,8 @@ import { IndexLink, Link } from 'react-router';
 import AppLayout, { Content } from 'components/app-layout';
 import Header from 'components/header';
 import Navigation from 'components/navigation';
+import st from 'store/Basic';
+import { getUrl } from 'utils/apiWorker';
 
 // Check if we should show devtool
 const showDevTool = (process.env.NODE_ENV !== 'production');
@@ -22,6 +24,12 @@ export default class App extends Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
   };
+
+  componentDidUpdate() {
+    if (!st.instaTokenLoaded) {
+      getUrl();
+    }
+  }
 
   /**
    * Render Method

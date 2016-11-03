@@ -14,11 +14,11 @@ export default class ContainerOne extends Component {
   };
 
   componentDidMount() {
-    if (!st.instaToken) {
+    if (!st.instaTokenLoaded) {
       const token = location.hash.split('token=').pop();
       st.instaToken = token;
 
-      getSelf(token);
+      getSelf();
     }
   }
 

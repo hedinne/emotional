@@ -3,9 +3,9 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-import { getImages } from 'utils/apiWorker';
+// import { getImages } from 'utils/apiWorker';
 import LoaderImage from 'assets/images/loader.svg';
-import s from './less/PlayerOne.less';
+import s from 'routes/less/PlayerOne.less';
 
 @observer
 export default class ClassName extends Component {
