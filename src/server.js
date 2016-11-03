@@ -8,9 +8,7 @@ import { Router, RouterContext, match } from 'react-router';
 import { serverWaitRender } from 'mobx-server-wait';
 import debug from 'utils/debug';
 import { Provider } from 'mobx-react';
-import _omit from 'lodash/omit';
 import routes, { NotFound } from './routes';
-import Store from './store';
 import color from 'cli-color'; // eslint-disable-line
 
 
@@ -58,11 +56,10 @@ app.get('*', (req, res) => {
     }
 
     // Setup store and context for provider
-    const store = new Store();
 
     // Setup the root but don't add $mobx as property to provider.
     const root = (
-      <Provider {..._omit(store, k => (k !== '$mobx'))}>
+      <Provider>
         <RouterContext {...props} />
       </Provider>
     );
@@ -84,7 +81,6 @@ app.get('*', (req, res) => {
 
     // Render when all actions have completed their promises
     const cancel = serverWaitRender({
-      store,
       root,
       debug: debugsw,
       render,
