@@ -4,11 +4,13 @@ import Segment from 'components/segment';
 import { getUri } from 'utils/apiWorker';
 import Store from 'store/Basic';
 import { Link } from 'react-router';
+import { observer } from 'mobx-react';
 
 
 /**
  * Home route component
  */
+@observer
 export default class Home extends Component {
 
   /**

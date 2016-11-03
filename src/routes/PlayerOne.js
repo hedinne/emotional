@@ -2,23 +2,14 @@ import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
-import Store from 'store/Basic';
-import { getSelf, getImages } from 'utils/apiWorker';
+import st from 'store/Basic';
+import { getImages } from 'utils/apiWorker';
 import LoaderImage from 'assets/images/loader.svg';
 import s from './less/PlayerOne.less';
 
 @observer
 export default class ClassName extends Component {
 
-  componentDidMount() {
-    if (!Store.instaToken) {
-      this.storeToken();
-    }
-  }
-
-  storeToken() {
-    Store.instaToken = location.hash.split('token=').pop();
-  }
 
   /**
    * PLayerOne
@@ -26,27 +17,27 @@ export default class ClassName extends Component {
    */
   render() {
 
-    if (!Store.selfInfo && Store.instaToken) {
-      getSelf();
-    }
-
     return (
       <div>
         <Helmet title="Player One" />
         <Segment>
-          {Store.selfInfo ? (
+          {st.selfInfo ? (
             <div>
-              <h2>Halló {Store.selfInfo.data.full_name}!</h2>
+              <h2>Halló {st.selfInfo.data.full_name}!</h2>
               <h3>Má bjóða þér að greina myndirnar þínar?</h3>
-              <button onChange={getImages()}>Hell yeah!</button>
+              {/* <button onClick={getImages()}>Hell yeah!</button> */}
 
-              {Store.images && (
-                <img src={Store.images.data[1].images.standard_resolution.url} alt="Hestur" />
+              {st.images && (
+                <div>
+                  <img src={st.images.data[1].images.standard_resolution.url} alt="Hestur" />
+                  <img src={st.images.data[2].images.standard_resolution.url} alt="Hestur" />
+                </div>
               )}
             </div>
           )
           : (
             <div className={s.loader}>
+              <h2>Loading Prince Billy...</h2>
               <img src={LoaderImage} alt="Loader" />
             </div>
           )}
