@@ -72,7 +72,7 @@ class BasicStore {
   }
 
   @computed get emoLoaded() {
-    return this.getEmotions.count > 0;
+    return this.getEmotions.count;
   }
 }
 

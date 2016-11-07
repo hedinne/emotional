@@ -26,16 +26,7 @@ export default class ContainerBattle extends Component {
   }
 
   render() {
-    const {
-      children,
-    } = this.props;
 
-    return (
-      <div>
-        {React.cloneElement(children, {
-          store: st,
-        })}
-      </div>
-    );
+    return this.props.children;
   }
 }
