@@ -3,13 +3,12 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-// import { getImages } from 'utils/apiWorker';
 import LoaderImage from 'assets/images/loader.svg';
 import s from 'routes/less/PlayerOne.less';
+import { Link } from 'react-router';
 
 @observer
 export default class ClassName extends Component {
-
 
   /**
    * PLayerOne
@@ -22,17 +21,15 @@ export default class ClassName extends Component {
         <Helmet title="Player One" />
         <Segment>
           {st.selfInfo ? (
-            <div>
-              <h2>Halló {st.selfInfo.data.full_name}!</h2>
-              <h3>Má bjóða þér að greina myndirnar þínar?</h3>
-              {/* <button onClick={getImages()}>Hell yeah!</button> */}
-
-              {st.images && (
-                <div>
-                  <img src={st.images.data[1].images.standard_resolution.url} alt="Hestur" />
-                  <img src={st.images.data[2].images.standard_resolution.url} alt="Hestur" />
-                </div>
-              )}
+            <div className={s.content}>
+              <div className={s.text}>
+                <h2>Halló {st.selfInfo.data.full_name.split(' ')[0]}!</h2>
+                <h3>Má bjóða þér að greina myndirnar þínar?</h3>
+                <Link to="/battle">Analyze my photos!</Link>
+              </div>
+              <div className={s.imageWrapper}>
+                <img className={s.img} src={st.selfInfo.data.profile_picture} alt="ProfilePic" />
+              </div>
             </div>
           )
           : (

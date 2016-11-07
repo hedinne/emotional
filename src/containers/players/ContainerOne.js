@@ -1,11 +1,14 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react'; //eslint-disable-line
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-import { getSelf } from 'utils/apiWorker';
+import api from 'utils/apiWorker';
+import { browserHistory } from 'react-router';
+
 /**
  * PlayerOne containers
  * @return {Component}
  */
+
 @observer
 export default class ContainerOne extends Component {
 
@@ -16,9 +19,14 @@ export default class ContainerOne extends Component {
   componentDidMount() {
     if (!st.instaTokenLoaded) {
       const token = location.hash.split('token=').pop();
-      st.instaToken = token;
 
-      getSelf();
+      if (!token || token.length < 30) {
+        browserHistory.push('/');
+      } else {
+        st.instaToken = token;
+
+        api.getSelf();
+      }
     }
   }
 

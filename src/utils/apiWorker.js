@@ -1,33 +1,59 @@
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+
 import st from 'store/Basic';
 import axios from 'axios';
 
-// Aðal ID
-const id = 'cf5856ebccbb459aaba3e64adc37b54b';
-// Auka ID
-// const id = 'b1ed5d4372b04febbca23d3e16dbf3e4';
+const IID = 'cf5856ebccbb459aaba3e64adc37b54b';
+// const IID2 = 'b1ed5d4372b04febbca23d3e16dbf3e4';
+const MKey = '9022fd69b5bb477d9591f4db93c7258a';
 
-export function getUrl() {
+function getUrl() {
   const redirect = 'http://localhost:3000/playerone';
 
-  return `https://api.instagram.com/oauth/authorize/?client_id=${id}&redirect_uri=${redirect}&response_type=token`;
+  return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token`;
 }
 
-export function getSelf() {
+function getSelf() {
   axios.get(`https://api.instagram.com/v1/users/self/?access_token=${st.instaToken}`)
     .then((res) => {
       st.selfInfo = res.data;
     })
     .catch((error) => {
-      console.warn(error);
+      console.error(error);
     });
 }
 
-export function getImages() {
-  axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${st.instaToken}&count=1`)
+function getImages(count) {
+  axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${st.instaToken}&count=${count}`)
     .then((res) => {
-      st.images = res.data;
+      st.selfImages = res.data;
     })
     .catch((error) => {
-      console.warn(error);
+      console.error(error);
     });
 }
+
+function getEmotions(imgURL) {
+  axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
+    url: imgURL,
+  }, {
+    headers: {
+      'Content-Type': 'application/json',
+      'Host': 'api.projectoxford.ai', //eslint-disable-line
+      'Ocp-Apim-Subscription-Key': MKey,
+    },
+  })
+  .then((res) => {
+    console.error(res);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+}
+
+module.exports = {
+  getImages,
+  getSelf,
+  getUrl,
+  getEmotions,
+};
