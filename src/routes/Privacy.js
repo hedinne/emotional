@@ -13,14 +13,21 @@ export default class Privacy extends Component {
       <div>
         <Helmet title="Privacy" />
         <Segment>
-          <h1>Privacy</h1>
+          <h1>Privacy / Persónuvernd</h1>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-             tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-             Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-             dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-             sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Mikil áhersla er lögð á að tryggja ábyrga meðferð allra upplýsinga. 
+          </p>
+          <p>
+            Við kappkostum okkur við að gæta öryggis og tryggja að unnið sé með upplýsingar fólks á öruggan,
+             eðlilegan, löglegan, ábyrgan og siðlegan hátt.
+            Öll samskipti við utanaðkomandi upplýsingaveitur eru dulkóðuð.
+          </p>
+          <p>
+            Þjónustan hefur ekki aðgang að framkvæmd aðgerða fyrir hönd notenda á tengdum miðlum.
+            Þjónustan hefur einungis lesaðgang að myndgögnum.
+          </p>
+          <p> 
+            Engin ábyrgð er tekin á þeim gögnum sem notandinn veitir leyfi á í gegnum síðuna.
           </p>
         </Segment>
       </div>
