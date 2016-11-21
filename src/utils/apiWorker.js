@@ -10,6 +10,7 @@ const IID = 'cf5856ebccbb459aaba3e64adc37b54b';
 const baseURL = process.env.BASEURL;
 
 function getUrl() {
+  console.log('baseURL: ', baseURL);
   const redirect = baseURL ? `${baseURL}/players` : 'http://localhost:3000/players';
 
   return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token&scope=basic+public_content`;
