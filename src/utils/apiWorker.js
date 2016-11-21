@@ -7,12 +7,9 @@ import axios from 'axios';
 const IID = 'cf5856ebccbb459aaba3e64adc37b54b';
 // const IID2 = 'b1ed5d4372b04febbca23d3e16dbf3e4';
 // const MKey = '9022fd69b5bb477d9591f4db93c7258a';
-const baseURL = process.env.BASEURL;
 
 function getUrl() {
-  const redirect = (baseURL) ? `${baseURL}/players` : 'http://localhost:3000/players';
-  console.log((baseURL));
-  console.log('redirect: ', redirect);
+  const redirect = 'http://localhost:3000/players';
 
   return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token&scope=basic+public_content`;
 }
@@ -37,10 +34,20 @@ function getImages(count) {
     });
 }
 
-function getUsers(name) {
+function getUsersOne(name) {
   axios.get(`https://api.instagram.com/v1/users/search?q=${name}&access_token=${st.instaToken}`)
     .then(res => {
       st.possibleUsersOne = res.data.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
+function getUsersTwo(name) {
+  axios.get(`https://api.instagram.com/v1/users/search?q=${name}&access_token=${st.instaToken}`)
+    .then(res => {
+      st.possibleUsersTwo = res.data.data;
     })
     .catch(error => {
       console.log(error);
@@ -51,5 +58,6 @@ module.exports = {
   getImages,
   getSelf,
   getUrl,
-  getUsers,
+  getUsersOne,
+  getUsersTwo,
 };

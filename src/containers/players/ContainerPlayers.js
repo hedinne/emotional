@@ -4,6 +4,7 @@ import st from 'store/Basic';
 // import api from 'utils/apiWorker';
 import { browserHistory } from 'react-router';
 import PlayerOne from 'routes/PlayerOne';
+import PlayerTwo from 'routes/PlayerTwo';
 
 /**
  * PlayerOne containers
@@ -32,9 +33,8 @@ export default class ContainerOne extends Component {
    */
   render() {
 
-    if (st.playerOneInfo) {
-      console.log('Should return playerTwo');
-      return <PlayerOne />;
+    if (st.usernameOne) {
+      return <PlayerTwo />;
     }
     return <PlayerOne />;
   }

@@ -17,7 +17,7 @@ export default class ContainerBattle extends Component {
   };
 
   componentDidMount() {
-    if (st.instaTokenLoaded) {
+    if (st.instaTokenLoaded && st.usernameOne && st.usernameTwo) {
       if (!st.getImages) { api.getImages(15); }
     } else {
       browserHistory.push('/');

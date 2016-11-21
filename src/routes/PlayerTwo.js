@@ -3,11 +3,12 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-// import s from 'routes/less/PlayerOne.less';
+// import s from 'routes/less/PlayerTwo.less';
 import api from 'utils/apiWorker';
+import { browserHistory } from 'react-router';
 
 @observer
-export default class PlayerOne extends Component {
+export default class PlayerTwo extends Component {
 
   constructor(...args) {
     super(...args);
@@ -18,11 +19,12 @@ export default class PlayerOne extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    api.getUsersOne(e.target.username.value);
+    api.getUsersTwo(e.target.username.value);
   }
 
   selectUser(i) {
-    st.usernameOne = i;
+    st.usernameTwo = i;
+    browserHistory.push('/battle');
   }
   /**
    * PLayerOne
@@ -34,13 +36,13 @@ export default class PlayerOne extends Component {
       <div>
         <Helmet title="Player One" />
         <Segment>
-          <h2>Leitaðu á notenda 1.</h2>
+          <h2>Leitaðu á notenda 2.</h2>
           <form onSubmit={this.handleSubmit}>
             <input type="search" name="username" />
             <input type="submit" value="submit" />
           </form>
 
-          {st.possibleUsersOne.map((item, index) => (
+          {st.possibleUsersTwo.map((item, index) => (
             <div key={`Not${index}`} onClick={() => { this.selectUser(item.username); }} >
               <img
                 src={item.profile_picture}

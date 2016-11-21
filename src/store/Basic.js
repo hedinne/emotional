@@ -1,4 +1,5 @@
-import { observable, autorun, computed } from 'mobx';
+// import { observable, autorun, computed } from 'mobx';
+import { observable, autorun } from 'mobx';
 // import axios from 'axios';
 
 // const MKey = '9022fd69b5bb477d9591f4db93c7258a';
@@ -11,12 +12,8 @@ class BasicStore {
 
   @observable possibleUsersOne = [];
   @observable usernameOne;
-  @observable possibleUsersTwo;
-  @observable playerTwoInfo;
-
-  @computed get usersOneLoaded() {
-    return this.possibleUsersOne.length > 0 || false;
-  }
+  @observable possibleUsersTwo = [];
+  @observable usernameTwo;
 
 
   // @computed get instaTokenLoaded() {
@@ -92,5 +89,6 @@ autorun(() => {
   console.log(' ');
   console.log('Token is loaded: ', store.instaToken);
   console.log('UsernameOne: ', store.usernameOne);
+  console.log('UsernameTwo: ', store.usernameTwo);
   console.log(' ');
 });
