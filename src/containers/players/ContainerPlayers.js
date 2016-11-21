@@ -1,8 +1,9 @@
-import React, { Component, PropTypes } from 'react'; //eslint-disable-line
+import React, { Component } from 'react'; //eslint-disable-line
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-import api from 'utils/apiWorker';
+// import api from 'utils/apiWorker';
 import { browserHistory } from 'react-router';
+import PlayerOne from 'routes/PlayerOne';
 
 /**
  * PlayerOne containers
@@ -12,10 +13,6 @@ import { browserHistory } from 'react-router';
 @observer
 export default class ContainerOne extends Component {
 
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-
   componentDidMount() {
     if (!st.instaTokenLoaded) {
       const token = location.hash.split('token=').pop();
@@ -24,8 +21,6 @@ export default class ContainerOne extends Component {
         browserHistory.push('/');
       } else {
         st.instaToken = token;
-
-        api.getSelf();
       }
     }
   }
@@ -36,10 +31,11 @@ export default class ContainerOne extends Component {
    * @return {Component}
    */
   render() {
-    const {
-      children,
-    } = this.props;
 
-    return children;
+    if (st.playerOneInfo) {
+      console.log('Should return playerTwo');
+      return <PlayerOne />;
+    }
+    return <PlayerOne />;
   }
 }

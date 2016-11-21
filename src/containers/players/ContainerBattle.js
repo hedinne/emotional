@@ -18,8 +18,7 @@ export default class ContainerBattle extends Component {
 
   componentDidMount() {
     if (st.instaTokenLoaded) {
-      api.getImages(15);
-
+      if (!st.getImages) { api.getImages(15); }
     } else {
       browserHistory.push('/');
     }

@@ -1,16 +1,18 @@
-/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+// /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
 
 import st from 'store/Basic';
 import axios from 'axios';
 
+
 const IID = 'cf5856ebccbb459aaba3e64adc37b54b';
 // const IID2 = 'b1ed5d4372b04febbca23d3e16dbf3e4';
-const MKey = '9022fd69b5bb477d9591f4db93c7258a';
+// const MKey = '9022fd69b5bb477d9591f4db93c7258a';
+const baseURL = process.env.BASEURL;
 
 function getUrl() {
-  const redirect = 'http://localhost:3000/playerone';
+  const redirect = baseURL ? `${baseURL}/players` : 'http://localhost:3000/players';
 
-  return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token`;
+  return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token&scope=basic+public_content`;
 }
 
 function getSelf() {
@@ -33,27 +35,19 @@ function getImages(count) {
     });
 }
 
-function getEmotions(imgURL) {
-  axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
-    url: imgURL,
-  }, {
-    headers: {
-      'Content-Type': 'application/json',
-      'Host': 'api.projectoxford.ai', //eslint-disable-line
-      'Ocp-Apim-Subscription-Key': MKey,
-    },
-  })
-  .then((res) => {
-    console.error(res);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+function getUsers(name) {
+  axios.get(`https://api.instagram.com/v1/users/search?q=${name}&access_token=${st.instaToken}`)
+    .then(res => {
+      st.possibleUsersOne = res.data.data;
+    })
+    .catch(error => {
+      console.log(error);
+    });
 }
 
 module.exports = {
   getImages,
   getSelf,
   getUrl,
-  getEmotions,
+  getUsers,
 };

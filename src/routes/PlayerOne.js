@@ -3,13 +3,27 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-import LoaderImage from 'assets/images/loader.svg';
-import s from 'routes/less/PlayerOne.less';
-import { Link } from 'react-router';
+// import s from 'routes/less/PlayerOne.less';
+import api from 'utils/apiWorker';
 
 @observer
 export default class ClassName extends Component {
 
+  constructor(...args) {
+    super(...args);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.selectUser = this.selectUser.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    api.getUsers(e.target.username.value);
+  }
+
+  selectUser(i) {
+    console.log(i);
+  }
   /**
    * PLayerOne
    * @return { Component }
@@ -20,24 +34,25 @@ export default class ClassName extends Component {
       <div>
         <Helmet title="Player One" />
         <Segment>
-          {st.selfInfo ? (
-            <div className={s.content}>
-              <div className={s.text}>
-                <h2>Halló {st.selfInfo.data.full_name.split(' ')[0]}!</h2>
-                <h3>Má bjóða þér að greina myndirnar þínar?</h3>
-                <Link to="/battle">Analyze my photos!</Link>
-              </div>
-              <div className={s.imageWrapper}>
-                <img className={s.img} src={st.selfInfo.data.profile_picture} alt="ProfilePic" />
+          <h2>Leitaðu á notenda 1.</h2>
+          <form onSubmit={this.handleSubmit}>
+            <input type="search" name="username" />
+            <input type="submit" value="submit" />
+          </form>
+
+          {st.possibleUsersOne.map((item, index) => (
+            <div key={`Not${index}`} onClick={() => { this.selectUser(item.username); }} >
+              <img
+                src={item.profile_picture}
+                alt={item.username}
+              />
+              <div>
+                <h4>{item.full_name}</h4>
+                <h4>{`Username: ${item.username}`}</h4>
+                <p>Numer: {index}</p>
               </div>
             </div>
-          )
-          : (
-            <div className={s.loader}>
-              <h2>Loading Prince Billy...</h2>
-              <img src={LoaderImage} alt="Loader" />
-            </div>
-          )}
+          ))}
         </Segment>
       </div>
     );

@@ -24,7 +24,7 @@ export default class Home extends Component {
         <div>
           <Helmet title="Home" />
           <Segment>
-            <Link to="/playerone">To player one</Link>
+            <Link to="/players">To player one</Link>
           </Segment>
         </div>
       );

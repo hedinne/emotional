@@ -19,15 +19,15 @@ export default class Battle extends Component {
         <Segment>
           <h2>Niðurstöður</h2>
           <h4>
-            Það fundust {st.getEmotions.count} andlit á seinustu 15 myndunum þínum.<br />
-            Þetta er algengi helstu tilfinninga á þeim myndum.</h4>
-
-          {Object.keys(st.getEmotions).map((key) => {
+            Það fundust {st.emo.count} andlit á seinustu 15 myndunum þínum.<br />
+            Þetta er algengi helstu tilfinninga á þeim myndum.
+          </h4>
+          {Object.keys(st.emo).map((key) => {
             if (key === 'count') { return null; }
 
             return (
               <div key={key}>
-                {key}: {((st.getEmotions[key] / st.getEmotions.count) * 100).toFixed(2)}%
+                {key}: {((st.emo[key] / st.emo.count) * 100).toFixed(2)}%
               </div>
             );
           })}
