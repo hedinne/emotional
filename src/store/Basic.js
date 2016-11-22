@@ -66,37 +66,37 @@ class BasicStore {
       {
         subject: 'Anger',
         A: this.emoOne.emotions.anger / this.emoOne.count,
-        B: this.emoOne.emotions.anger / this.emoOne.count,
+        B: this.emoTwo.emotions.anger / this.emoTwo.count,
       },
       {
         subject: 'Contempt',
         A: this.emoOne.emotions.contempt / this.emoOne.count,
-        B: this.emoOne.emotions.contempt / this.emoOne.count,
+        B: this.emoTwo.emotions.contempt / this.emoTwo.count,
       },
       {
         subject: 'Disgust',
         A: this.emoOne.emotions.disgust / this.emoOne.count,
-        B: this.emoOne.emotions.disgust / this.emoOne.count,
+        B: this.emoTwo.emotions.disgust / this.emoTwo.count,
       },
       {
         subject: 'Fear',
         A: this.emoOne.emotions.fear / this.emoOne.count,
-        B: this.emoOne.emotions.fear / this.emoOne.count,
+        B: this.emoTwo.emotions.fear / this.emoTwo.count,
       },
       {
         subject: 'Happiness',
         A: this.emoOne.emotions.happiness / this.emoOne.count,
-        B: this.emoOne.emotions.happiness / this.emoOne.count,
+        B: this.emoTwo.emotions.happiness / this.emoTwo.count,
       },
       {
         subject: 'Neutral',
         A: this.emoOne.emotions.neutral / this.emoOne.count,
-        B: this.emoOne.emotions.neutral / this.emoOne.count,
+        B: this.emoTwo.emotions.neutral / this.emoTwo.count,
       },
       {
         subject: 'Sadness',
         A: this.emoOne.emotions.sadness / this.emoOne.count,
-        B: this.emoOne.emotions.sadness / this.emoOne.count,
+        B: this.emoTwo.emotions.sadness / this.emoTwo.count,
       },
       {
         subject: 'Surprise',
