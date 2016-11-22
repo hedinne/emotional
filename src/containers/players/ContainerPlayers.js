@@ -33,7 +33,7 @@ export default class ContainerOne extends Component {
    */
   render() {
 
-    if (st.usernameOne) {
+    if (st.userInfoOne) {
       return <PlayerTwo />;
     }
     return <PlayerOne />;

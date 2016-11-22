@@ -23,7 +23,7 @@ export default class PlayerTwo extends Component {
   }
 
   selectUser(i) {
-    st.usernameTwo = i;
+    st.userInfoTwo = i;
     browserHistory.push('/battle');
   }
   /**
@@ -43,7 +43,7 @@ export default class PlayerTwo extends Component {
           </form>
 
           {st.possibleUsersTwo.map((item, index) => (
-            <div key={`Not${index}`} onClick={() => { this.selectUser(item.username); }} >
+            <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
               <img
                 src={item.profile_picture}
                 alt={item.username}

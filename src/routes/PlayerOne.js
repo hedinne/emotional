@@ -22,7 +22,7 @@ export default class PlayerOne extends Component {
   }
 
   selectUser(i) {
-    st.usernameOne = i;
+    st.userInfoOne = i;
   }
   /**
    * PLayerOne
@@ -39,20 +39,21 @@ export default class PlayerOne extends Component {
             <input type="search" name="username" />
             <input type="submit" value="submit" />
           </form>
-
-          {st.possibleUsersOne.map((item, index) => (
-            <div key={`Not${index}`} onClick={() => { this.selectUser(item.username); }} >
-              <img
-                src={item.profile_picture}
-                alt={item.username}
-              />
-              <div>
-                <h4>{item.full_name}</h4>
-                <h4>{`Username: ${item.username}`}</h4>
-                <p>Numer: {index}</p>
+          <div>
+            {st.possibleUsersOne.map((item, index) => (
+              <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
+                <img
+                  src={item.profile_picture}
+                  alt={item.username}
+                />
+                <div>
+                  <h4>{item.full_name}</h4>
+                  <h4>{`Username: ${item.username}`}</h4>
+                  <p>Numer: {index}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </Segment>
       </div>
     );

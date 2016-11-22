@@ -17,15 +17,18 @@ export default class ContainerBattle extends Component {
   };
 
   componentDidMount() {
-    if (st.instaTokenLoaded && st.usernameOne && st.usernameTwo) {
-      if (!st.getImages) { api.getImages(15); }
+    if (st.instaToken && st.userInfoOne && st.userInfoTwo) {
+      if (!st.getImages) {
+        api.getImagesOne(20);
+        api.getImagesTwo(20);
+        api.getEmotionsOne();
+      }
     } else {
       browserHistory.push('/');
     }
   }
 
   render() {
-
     return this.props.children;
   }
 }
