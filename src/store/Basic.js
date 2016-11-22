@@ -1,7 +1,7 @@
 import { observable, autorun, computed } from 'mobx';
-import axios from 'axios';
-
-const MKey = '9022fd69b5bb477d9591f4db93c7258a';
+// import axios from 'axios';
+//
+// const MKey = '9022fd69b5bb477d9591f4db93c7258a';
 
 class BasicStore {
   @observable instaToken;
@@ -60,6 +60,52 @@ class BasicStore {
     }
     return imgArray;
   }
+
+  @computed get cleanEmo() {
+    return [
+      {
+        subject: 'Anger',
+        A: this.emoOne.emotions.anger / this.emoOne.count,
+        B: this.emoOne.emotions.anger / this.emoOne.count,
+      },
+      {
+        subject: 'Contempt',
+        A: this.emoOne.emotions.contempt / this.emoOne.count,
+        B: this.emoOne.emotions.contempt / this.emoOne.count,
+      },
+      {
+        subject: 'Disgust',
+        A: this.emoOne.emotions.disgust / this.emoOne.count,
+        B: this.emoOne.emotions.disgust / this.emoOne.count,
+      },
+      {
+        subject: 'Fear',
+        A: this.emoOne.emotions.fear / this.emoOne.count,
+        B: this.emoOne.emotions.fear / this.emoOne.count,
+      },
+      {
+        subject: 'Happiness',
+        A: this.emoOne.emotions.happiness / this.emoOne.count,
+        B: this.emoOne.emotions.happiness / this.emoOne.count,
+      },
+      {
+        subject: 'Neutral',
+        A: this.emoOne.emotions.neutral / this.emoOne.count,
+        B: this.emoOne.emotions.neutral / this.emoOne.count,
+      },
+      {
+        subject: 'Sadness',
+        A: this.emoOne.emotions.sadness / this.emoOne.count,
+        B: this.emoOne.emotions.sadness / this.emoOne.count,
+      },
+      {
+        subject: 'Surprise',
+        A: this.emoOne.emotions.surprise / this.emoOne.count,
+        B: this.emoOne.emotions.surprise / this.emoOne.count,
+      },
+    ];
+  }
+
 
   // @computed get emotionsOne() {
   //   const emo = {
