@@ -14,6 +14,13 @@ import s from './less/Home.less';
 @observer
 export default class Home extends Component {
 
+  componentDidMount() {
+    if (st.userInfoOne || st.userInfoTwo) {
+      st.userInfoOne = {};
+      st.userInfoTwo = {};
+    }
+  }
+
   /**
    * Render method
    * @return {Component}

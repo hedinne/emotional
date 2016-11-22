@@ -9,12 +9,6 @@ import Navigation from 'components/navigation';
 import st from 'store/Basic';
 import { getUrl } from 'utils/apiWorker';
 
-// Check if we should show devtool
-const showDevTool = (process.env.NODE_ENV !== 'production');
-
-// Otherwise render null
-const DevTools = showDevTool ? require('utils/devtools') : () => null;
-
 /**
  * Main app container
  * @return {Component}
@@ -53,7 +47,6 @@ export default class App extends Component {
           {children}
         </Content>
 
-        <DevTools />
       </AppLayout>
     );
   }

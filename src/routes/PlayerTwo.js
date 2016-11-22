@@ -36,29 +36,29 @@ export default class PlayerTwo extends Component {
       <div className={s.host}>
         <Helmet title="Player One" />
         <Segment>
-				<div className={s.container}>
+          <div className={s.container}>
 
-          <h2 className={s.heading}>Leitaðu á notenda 2.</h2>
-          <form onSubmit={this.handleSubmit}  className={s.form}>
-            <input type="search" name="username" />
-            <input type="submit" value="submit" />
-          </form>
+            <h2 className={s.heading}>Leitaðu á notenda 2.</h2>
+            <form onSubmit={this.handleSubmit} className={s.form}>
+              <input type="search" name="username" defaultValue="he" />
+              <input type="submit" value="submit" />
+            </form>
 
-          {st.possibleUsersTwo.map((item, index) => (
-            <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
-              <img
-                src={item.profile_picture}
-                alt={item.username}
-              />
-              <div>
-                <h4>{item.full_name}</h4>
-                <h4>{`Username: ${item.username}`}</h4>
-                <p>Numer: {index}</p>
+            {st.possibleUsersTwo.map((item, index) => (
+              <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
+                <img
+                  src={item.profile_picture}
+                  alt={item.username}
+                />
+                <div>
+                  <h4>{item.full_name}</h4>
+                  <h4>{`Username: ${item.username}`}</h4>
+                  <p>Numer: {index}</p>
+                </div>
               </div>
-            </div>
-						))}
-				</div>
-			</Segment>
+            ))}
+          </div>
+        </Segment>
       </div>
     );
   }
