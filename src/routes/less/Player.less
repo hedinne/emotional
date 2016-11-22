@@ -23,39 +23,6 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-.anchor {
-  .reset-anchor;
-}
-
-.button {
-
-  flex: 1;
-
-  margin: auto;
-  padding: 0.5em;
-
-  width: 50%;
-
-  font-size: 20px;
-  text-align: center;
-
-  border-radius: 2px;
-
-  background-color: rgba(255, 255, 255, 0.7);
-
-  transition: background-color ease-in-out 200ms, transform ease-in-out 200ms;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    transform: scale(1.1);
-  }
-
-  @media (min-width: @min-1024) {
-    font-size: 30px;
-  }
-}
-
-
 .heading {
   text-align: center;
   color: #353237;
@@ -64,4 +31,9 @@
   @media (min-width: @min-1024) {
     font-size: 40px;
   }
+}
+
+.form {
+  display: flex;
+  justify-content: center;
 }

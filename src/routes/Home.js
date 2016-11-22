@@ -41,9 +41,13 @@ export default class Home extends Component {
               Settle once and for all who is living a more colorful life
             </h2>
             {st.instaToken ? (
-              <Link to="/players">Slect player one</Link>
+              <Link to="/players" className={s.anchor}>
+                <div className={s.button}>
+                  Play Again!
+                </div>
+              </Link>
             ) : (
-            <a href={getUrl()}>
+            <a href={getUrl()} className={s.anchor}>
               <div className={s.button}>
                 Let's play!
               </div>

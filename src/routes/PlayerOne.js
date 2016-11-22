@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-// import s from 'routes/less/PlayerOne.less';
+import s from 'routes/less/Player.less';
 import api from 'utils/apiWorker';
 
 @observer
@@ -31,28 +31,31 @@ export default class PlayerOne extends Component {
   render() {
 
     return (
-      <div>
+      <div className={s.host}>
         <Helmet title="Player One" />
         <Segment>
-          <h2>Leitaðu á notenda 1.</h2>
-          <form onSubmit={this.handleSubmit}>
-            <input type="search" name="username" />
-            <input type="submit" value="submit" />
-          </form>
-          <div>
-            {st.possibleUsersOne.map((item, index) => (
-              <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
-                <img
-                  src={item.profile_picture}
-                  alt={item.username}
-                />
-                <div>
-                  <h4>{item.full_name}</h4>
-                  <h4>{`Username: ${item.username}`}</h4>
-                  <p>Numer: {index}</p>
+          <div className={s.container}>
+
+            <h2 className={s.heading}>  Select Player #1</h2>
+            <form onSubmit={this.handleSubmit} className={s.form}>
+              <input type="search" name="username" />
+              <input type="submit" value="submit" />
+            </form>
+            <div>
+              {st.possibleUsersOne.map((item, index) => (
+                <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
+                  <img
+                    src={item.profile_picture}
+                    alt={item.username}
+                  />
+                  <div>
+                    <h4>{item.full_name}</h4>
+                    <h4>{`Username: ${item.username}`}</h4>
+                    <p>Numer: {index}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Segment>
       </div>
