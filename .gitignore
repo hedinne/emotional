@@ -38,3 +38,8 @@ node_modules
 # Other
 .env
 .DS_Store
+
+#VIM temp+swap files
+*~
+*.swp
+*.swo

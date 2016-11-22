@@ -3,7 +3,7 @@ import Helmet from 'react-helmet';
 import Segment from 'components/segment';
 import { observer } from 'mobx-react';
 import st from 'store/Basic';
-// import s from 'routes/less/PlayerTwo.less';
+import s from 'routes/less/Player.less';
 import api from 'utils/apiWorker';
 import { browserHistory } from 'react-router';
 
@@ -33,11 +33,13 @@ export default class PlayerTwo extends Component {
   render() {
 
     return (
-      <div>
+      <div className={s.host}>
         <Helmet title="Player One" />
         <Segment>
-          <h2>Leitaðu á notenda 2.</h2>
-          <form onSubmit={this.handleSubmit}>
+				<div className={s.container}>
+
+          <h2 className={s.heading}>Leitaðu á notenda 2.</h2>
+          <form onSubmit={this.handleSubmit}  className={s.form}>
             <input type="search" name="username" />
             <input type="submit" value="submit" />
           </form>
@@ -54,8 +56,9 @@ export default class PlayerTwo extends Component {
                 <p>Numer: {index}</p>
               </div>
             </div>
-          ))}
-        </Segment>
+						))}
+				</div>
+			</Segment>
       </div>
     );
   }

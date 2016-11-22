@@ -65,43 +65,43 @@ class BasicStore {
     return [
       {
         subject: 'Anger',
-        A: this.emoOne.emotions.anger / this.emoOne.count,
-        B: this.emoTwo.emotions.anger / this.emoTwo.count,
+        A: this.emoOne.emotions.anger+0.1 / this.emoOne.count,
+        B: this.emoTwo.emotions.anger+0.1 / this.emoTwo.count,
       },
       {
         subject: 'Contempt',
-        A: this.emoOne.emotions.contempt / this.emoOne.count,
-        B: this.emoTwo.emotions.contempt / this.emoTwo.count,
+        A: this.emoOne.emotions.contempt+0.1 / this.emoOne.count,
+        B: this.emoTwo.emotions.contempt+0.1 / this.emoTwo.count,
       },
       {
         subject: 'Disgust',
-        A: this.emoOne.emotions.disgust / this.emoOne.count,
-        B: this.emoTwo.emotions.disgust / this.emoTwo.count,
+        A: this.emoOne.emotions.disgust+0.1 / this.emoOne.count,
+        B: this.emoTwo.emotions.disgust+0.1 / this.emoTwo.count,
       },
       {
         subject: 'Fear',
-        A: this.emoOne.emotions.fear / this.emoOne.count,
-        B: this.emoTwo.emotions.fear / this.emoTwo.count,
+        A: this.emoOne.emotions.fear+0.1 / this.emoOne.count,
+        B: this.emoTwo.emotions.fear+0.1 / this.emoTwo.count,
       },
       {
         subject: 'Happiness',
-        A: this.emoOne.emotions.happiness / this.emoOne.count,
-        B: this.emoTwo.emotions.happiness / this.emoTwo.count,
+        A: (this.emoOne.emotions.happiness+0.1 / (this.emoOne.count*3)),
+        B: (this.emoTwo.emotions.happiness+0.1 / (this.emoTwo.count*3)),
       },
       {
         subject: 'Neutral',
-        A: this.emoOne.emotions.neutral / this.emoOne.count,
-        B: this.emoTwo.emotions.neutral / this.emoTwo.count,
+        A: (this.emoOne.emotions.neutral+0.1 / (this.emoOne.count*2)),
+        B: (this.emoTwo.emotions.neutral+0.1 / (this.emoTwo.count*2)),
       },
       {
         subject: 'Sadness',
-        A: this.emoOne.emotions.sadness / this.emoOne.count,
-        B: this.emoTwo.emotions.sadness / this.emoTwo.count,
+        A: this.emoOne.emotions.sadness+0.1 / this.emoOne.count,
+        B: this.emoTwo.emotions.sadness+0.1 / this.emoTwo.count,
       },
       {
         subject: 'Surprise',
-        A: this.emoOne.emotions.surprise / this.emoOne.count,
-        B: this.emoOne.emotions.surprise / this.emoOne.count,
+        A: this.emoOne.emotions.surprise+0.1 / this.emoOne.count,
+        B: this.emoOne.emotions.surprise+0.1 / this.emoOne.count,
       },
     ];
   }

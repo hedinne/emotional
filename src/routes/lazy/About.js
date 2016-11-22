@@ -6,29 +6,27 @@ import Helmet from 'react-helmet';
  */
 export default class About extends Component {
 
-  /**
-   * Render method
-   * @return {Component}
-   */
-  render() {
-    return (
-      <div>
-        <Helmet title="About" />
-        <Segment>
-          <h1>Emotional intelligence verkefnið</h1>
-          <p> Verkefnið er unnið í áfanganum hugbúnaðarþróun við Háskóla Íslands undir kennslu Matthias Book. </p>
-          <p>
-              Emotional intelligence byggir í grunninn á Express og React en nýtir að auki utanaðkomandi API þjónustur.
-              Helst má þar nefna Instagram API og Microsoft Cognitive Services betur þekkt sem Face API.
-              Myndum Instagram notanda er aflað í gegnum Instagram API, þær greindar með Face API og niðurstöðum safnað saman.
-              Niðurstöður þessa ferlis eru tölulegar upplýsingar um tilfinningar sem andlitssvipir greindra mynda gefa til kynna.
-          </p>
-          <p>
-              Hugbúnaðurinn getur þessa stundina greint tilfinningar 15 seinustu Instagram mynda notanda.
-              Einnig er hægt að bæta við öðrum notanda og bera saman niðurstöðurnar þessara tveggja notenda.
-          </p>
-        </Segment>
-      </div>
-    );
-  }
+	/**
+	 * Render method
+	 * @return {Component}
+	 */
+	render() {
+		return (
+				<div>
+				<Helmet title="About" />
+				<Segment>
+				<h1>Adfectum</h1>
+				<p> Adfectum is a project in the Software Project course at the Univeristy of Iceland taught by Matthias Book.  </p>
+				<p>
+
+				The project is developed using Express and React through Node.js in conjunction with API services. The API's used in the project are Instagram API and Microsoft Cognitive Services, otherwise known as Face API. The user's images are obtained through the Instagram API, analyzed with Face API and results collected.  The results are in the form of statistical information presented by the Face API after analyzing the facial expressions of uploaded photoes.
+
+				</p>
+				<p>
+				The software is capable of analyzing the emotions of fifteen most recent Instagram photoes per user. It is also possible to add another user and compare the results of the two users. 
+				</p>
+				</Segment>
+				</div>
+				);
+	}
 }

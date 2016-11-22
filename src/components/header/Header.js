@@ -11,7 +11,7 @@ export default class Header extends Component {
     return (
       <header className={s.header}>
         <div className={s.container}>
-          <a className={s.logo}>Emotional Intelligence</a>
+          <a className={s.logo}>Adfectum</a>
 
           <div className={s.navigation}>
             {this.props.children}
