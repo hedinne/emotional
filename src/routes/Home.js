@@ -5,6 +5,7 @@ import { getUrl } from 'utils/apiWorker';
 import st from 'store/Basic';
 import { Link } from 'react-router';
 import { observer } from 'mobx-react';
+import s from './less/Home.less';
 
 
 /**
@@ -31,14 +32,24 @@ export default class Home extends Component {
     }
 
     return (
-      <div>
+      <div className={s.host}>
         <Helmet title="Home" />
         <Segment>
-          <h2>
+          <div className={s.container}>
+            <h2 className={s.heading}>
+              Set your friends up for an emotional duel.<br />
+              Settle once and for all who is living a more colorful life
+            </h2>
+            {st.instaToken ? (
+              <Link to="/players">Slect player one</Link>
+            ) : (
             <a href={getUrl()}>
-              Byrja!
+              <div className={s.button}>
+                Let's play!
+              </div>
             </a>
-          </h2>
+            )}
+          </div>
         </Segment>
       </div>
     );
