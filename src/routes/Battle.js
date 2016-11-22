@@ -40,12 +40,14 @@ export default class Battle extends Component {
 					<div className={t.battlewindow}>
 						<div className={t.profile}>
 								<img src={st.userInfoOne.profile_picture}  className="t.image"/>
+								<p>Some Text</p>
 						</div>
 						<div className={t.text}>
 								Vs.
 						</div>
 						<div className={t.profile}>
 								<img src={st.userInfoTwo.profile_picture} className="t.image"/>
+								<p>Some Text</p>
 						</div>
 					</div>
 					<div className={t.chart}>
