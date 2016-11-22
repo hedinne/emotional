@@ -54,7 +54,6 @@ function getEmotionsOne() {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': MKey,
       },
-      timeout: 150 * i,
     })
     .then((res) => {
       for (let y = 0; y < res.data.length; y++) {
@@ -82,7 +81,6 @@ function getEmotionsTwo() {
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': MKey,
       },
-      timeout: 150 * i,
     })
     .then((res) => {
       for (let y = 0; y < res.data.length; y++) {
