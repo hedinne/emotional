@@ -34,7 +34,7 @@ export default class PlayerTwo extends Component {
 
     return (
       <div className={s.host}>
-        <Helmet title="Player One" />
+        <Helmet title="Player One"/>
         <Segment>
           <div className={s.container}>
 
