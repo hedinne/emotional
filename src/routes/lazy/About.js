@@ -17,18 +17,18 @@ export default class About extends Component {
         <Helmet title="About" />
         <Segment>
 				<div className={s.container}>
-          <h1 className={s.heading}>Adfectum</h1>
+          <h1 className={s.heading}>dual8</h1>
           <p>
-            Adfectum is a project in the Software Project
+            dual8 is a project in the Software Project
             course at the Univeristy of Iceland taught by Matthias Book.
           </p>
           <p>
             The project is developed using Express and React through Node.js
              in conjunction with API services. The API's used in the project
              are Instagram API and Microsoft Cognitive Services, otherwise known
-             as Face API. The user's images are obtained through the Instagram
-             API, analyzed with Face API and results collected.  The results are in
-             the form of statistical information presented by the Face API after
+             as Emotion API. The user's images are obtained through the Instagram
+             API, analyzed with Emotion API and results collected.  The results are in
+             the form of statistical information presented by the Emotion API after
              analyzing the facial expressions of uploaded photoes.
            </p>
           <p>
