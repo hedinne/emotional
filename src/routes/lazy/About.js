@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Segment from 'components/segment';
 import Helmet from 'react-helmet';
+import s from '../less/Home.less';
 /**
  * About route component
  */
@@ -12,10 +13,11 @@ export default class About extends Component {
 	 */
   render() {
     return (
-      <div>
+      <div className={s.host}>
         <Helmet title="About" />
         <Segment>
-          <h1>Adfectum</h1>
+				<div className={s.container}>
+          <h1 className={s.heading}>Adfectum</h1>
           <p>
             Adfectum is a project in the Software Project
             course at the Univeristy of Iceland taught by Matthias Book.
@@ -34,6 +36,7 @@ export default class About extends Component {
             most recent Instagram photoes per user. It is also possible to
             add another user and compare the results of the two users.
           </p>
+					</div>
         </Segment>
       </div>
     );
