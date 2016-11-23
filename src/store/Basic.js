@@ -1,13 +1,19 @@
 import { observable, autorun, computed } from 'mobx';
 
 function weight(number) {
-  if (number < 0.001) return number * 2000;
-  if (number < 0.01) return number * 200;
-  if (number < 0.7) return number * 50;
-  if (number < 0.15) return number * 3;
-  if (number < 0.2) return number * 2;
-  if (number < 0.3) return number * 1.5;
-  return number;
+  // if (number < 0.001) return number * 2000;
+  // if (number < 0.01) return number * 200;
+  // if (number < 0.7) return number * 50;
+  // if (number < 0.15) return number * 3;
+  // if (number < 0.2) return number * 2;
+  // if (number < 0.3) return number * 1.5;
+  // return number;
+
+  // in case of request denied from Emotion API:
+  // set scoring to 1 (the lowest possible value)
+  if (isNaN(number)) return 1;
+  if (number <0.0002) return 1;
+  return Math.log10(number)+4;
 }
 
 class BasicStore {
