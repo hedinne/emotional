@@ -21,7 +21,6 @@ export default class ContainerBattle extends Component {
       if (!st.getImages) {
         api.getImagesOne(20);
         api.getImagesTwo(20);
-        api.getEmotionsOne();
       }
     } else {
       browserHistory.push('/');

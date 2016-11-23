@@ -20,7 +20,7 @@ export default class App extends Component {
   };
 
   componentDidUpdate() {
-    if (!st.instaTokenLoaded) {
+    if (!st.tokenLoaded) {
       getUrl();
     }
   }
