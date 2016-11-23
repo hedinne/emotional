@@ -18,6 +18,8 @@
   .container;
 
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .logo {
@@ -31,5 +33,7 @@
 .navigation {
   display: flex;
 
-  margin-left: auto;
+  @media (min-width: 462px) {
+    margin-left: auto;
+  }
 }

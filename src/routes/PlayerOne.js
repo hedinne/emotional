@@ -36,7 +36,7 @@ export default class PlayerOne extends Component {
         <Segment>
           <div className={s.container}>
 
-            <h2 className={s.heading}>  Select Player #1</h2>
+            <h2 className={s.heading}>Select Player #1</h2>
             <form onSubmit={this.handleSubmit} className={s.form}>
               <input
                 type="search"
