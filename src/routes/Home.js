@@ -81,7 +81,7 @@ export default class Home extends Component {
           <div className={s.container}>
             <h2 className={s.heading}>
               Set your friends up for an emotional duel.<br />
-              Settle once and for all who is living a more colorful life
+              Settle once and for all who is living a more colorful life.
             </h2>
             {st.instaToken ? (
               <Link to="/players" className={s.anchor}>
