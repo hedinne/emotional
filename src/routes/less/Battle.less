@@ -1,40 +1,89 @@
-.chart{
+@import '~styles/config';
 
-  flex: 1;
+.host {
+  min-height: 100vh;
 
-  margin: auto;
-  padding: 0.5em;
-	margin-bottom: 5em;
+  font-family: 'Josefin Sans', sans-serif;
+  color: #353237;
 
-  width: 50%;
+  background-image: url('assets/images/home-bg.jpeg');
+  background-size: cover;
+}
 
-  font-size: 20px;
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 7%;
+
+  min-height: 60vh;
+
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.heading {
   text-align: center;
+  color: #353237;
+  font-size: 18px;
 
-  border-radius: 2px;
+  @media (min-width: @min-1024) {
+    font-size: 40px;
+  }
+}
+
+.users {
+  display: flex;
+  justify-content: space-around;
+
+  margin-bottom: 7%;
+}
+
+.image {
+  margin: auto;
+  border-radius: 50%;
+}
+
+.profile {
+  padding: 3% 5%;
+
+  min-width: 280px;
 
   background-color: rgba(255, 255, 255, 0.7);
 }
 
-.battlewindow {
-	display: flex;
-  justify-content: space-between;
-	margin:auto;
-	margin-bottom: 5em;
+.title {
+  margin-bottom: 0;
+
+  text-align: center;
 }
 
-.text {
-	margin-left: 1em;
-	margin-right: 1em;
-	font-size: 55px;
-	flex: 1;	
+.info {
+  text-align: center;
 }
 
-.image {
-	border-radius: 10px;
+.happyImg {
+  width: 250px;
 }
 
-.profile {
-	flex: 2;
-	
- } 
+.chart {
+  display: flex;
+  justify-content: center;
+
+  padding: 3% 5%;
+
+  min-width: 280px;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.loading {
+  margin: 30px auto;
+}
+
+.playerHeading {
+  margin-bottom: 1.3em;
+
+  text-align: center;
+  font-size: 1.4em;
+}

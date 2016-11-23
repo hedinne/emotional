@@ -1,7 +1,14 @@
 import { observable, autorun, computed } from 'mobx';
-// import axios from 'axios';
-//
-// const MKey = '9022fd69b5bb477d9591f4db93c7258a';
+
+function weight(number) {
+  if (number < 0.001) return number * 2000;
+  if (number < 0.01) return number * 200;
+  if (number < 0.7) return number * 50;
+  if (number < 0.15) return number * 3;
+  if (number < 0.2) return number * 2;
+  if (number < 0.3) return number * 1.5;
+  return number;
+}
 
 class BasicStore {
   @observable instaToken;
@@ -22,6 +29,10 @@ class BasicStore {
       surprise: 0,
     },
   };
+  @observable happyOne = {
+    score: 0,
+    link: '',
+  }
 
   @observable possibleUsersTwo = [];
   @observable userInfoTwo;
@@ -39,6 +50,10 @@ class BasicStore {
       surprise: 0,
     },
   };
+  @observable happyTwo = {
+    score: 0,
+    link: '',
+  }
 
 
   @computed get cleanOne() {
@@ -65,93 +80,69 @@ class BasicStore {
     return [
       {
         subject: 'Anger',
-        A: this.emoOne.emotions.anger+0.1 / this.emoOne.count,
-        B: this.emoTwo.emotions.anger+0.1 / this.emoTwo.count,
+        A: weight(this.emoOne.emotions.anger / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.anger / this.emoTwo.count),
       },
       {
         subject: 'Contempt',
-        A: this.emoOne.emotions.contempt+0.1 / this.emoOne.count,
-        B: this.emoTwo.emotions.contempt+0.1 / this.emoTwo.count,
+        A: weight(this.emoOne.emotions.contempt / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.contempt / this.emoTwo.count),
       },
       {
         subject: 'Disgust',
-        A: this.emoOne.emotions.disgust+0.1 / this.emoOne.count,
-        B: this.emoTwo.emotions.disgust+0.1 / this.emoTwo.count,
+        A: weight(this.emoOne.emotions.disgust / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.disgust / this.emoTwo.count),
       },
       {
         subject: 'Fear',
-        A: this.emoOne.emotions.fear+0.1 / this.emoOne.count,
-        B: this.emoTwo.emotions.fear+0.1 / this.emoTwo.count,
+        A: weight(this.emoOne.emotions.fear / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.fear / this.emoTwo.count),
       },
       {
         subject: 'Happiness',
-        A: (this.emoOne.emotions.happiness+0.1 / (this.emoOne.count*3)),
-        B: (this.emoTwo.emotions.happiness+0.1 / (this.emoTwo.count*3)),
+        A: weight(this.emoOne.emotions.happiness / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.happiness / this.emoTwo.count),
       },
       {
         subject: 'Neutral',
-        A: (this.emoOne.emotions.neutral+0.1 / (this.emoOne.count*2)),
-        B: (this.emoTwo.emotions.neutral+0.1 / (this.emoTwo.count*2)),
+        A: weight(this.emoOne.emotions.neutral / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.neutral / this.emoTwo.count),
       },
       {
         subject: 'Sadness',
-        A: this.emoOne.emotions.sadness+0.1 / this.emoOne.count,
-        B: this.emoTwo.emotions.sadness+0.1 / this.emoTwo.count,
+        A: weight(this.emoOne.emotions.sadness / this.emoOne.count),
+        B: weight(this.emoTwo.emotions.sadness / this.emoTwo.count),
       },
       {
         subject: 'Surprise',
-        A: this.emoOne.emotions.surprise+0.1 / this.emoOne.count,
-        B: this.emoOne.emotions.surprise+0.1 / this.emoOne.count,
+        A: weight(this.emoOne.emotions.surprise / this.emoOne.count),
+        B: weight(this.emoOne.emotions.surprise / this.emoOne.count),
       },
     ];
   }
 
+  @computed get userOneLoaded() {
+    return (
+      this.userInfoOne !== undefined &&
+      typeof this.userInfoOne === 'object' &&
+      Object.keys(this.userInfoOne).length > 0
+    );
+  }
 
-  // @computed get emotionsOne() {
-  //   const emo = {
-  //     anger: 0,
-  //     contempt: 0,
-  //     disgust: 0,
-  //     fear: 0,
-  //     happiness: 0,
-  //     neutral: 0,
-  //     sadness: 0,
-  //     surprise: 0,
-  //     count: 0,
-  //   };
-  //
-  //   for (let i = 0; i < this.cleanOne.length; i++) {
-  //     setTimeout(() => {
-  //       axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
-  //         url: this.cleanOne[i],
-  //       }, {
-  //         headers: {
-  //           'Content-Type': 'application/json',
-  //           'Host': 'api.projectoxford.ai', //eslint-disable-line
-  //           'Ocp-Apim-Subscription-Key': MKey,
-  //         },
-  //       })
-  //       .then((res) => {
-  //         for (let y = 0; y < res.data.length; y++) {
-  //           emo.anger += res.data[y].scores.anger;
-  //           emo.contempt += res.data[y].scores.contempt;
-  //           emo.disgust += res.data[y].scores.disgust;
-  //           emo.fear += res.data[y].scores.fear;
-  //           emo.happiness += res.data[y].scores.happiness;
-  //           emo.neutral += res.data[y].scores.neutral;
-  //           emo.sadness += res.data[y].scores.sadness;
-  //           emo.surprise += res.data[y].scores.surprise;
-  //           emo.count++;
-  //         }
-  //       })
-  //       .catch((error) => {
-  //         console.error(error);
-  //       });
-  //     }, 200);
-  //   }
-  //
-  //   return emo;
-  // }
+  @computed get userTwoLoaded() {
+    return (
+      this.userInfoTwo !== undefined &&
+      typeof this.userInfoTwo === 'object' &&
+      Object.keys(this.userInfoTwo).length > 0
+    );
+  }
+
+  @computed get tokenLoaded() {
+    return (
+      this.instaToken !== undefined &&
+      typeof this.instaToken === 'string'
+    );
+  }
 }
 
 const store = new BasicStore();
@@ -161,13 +152,14 @@ export default store;
 autorun(() => {
   console.log(' ');
   console.log('Token is loaded: ', store.instaToken);
-  console.log('UsernameOne: ', store.userInfoOne);
+  console.log('UserInfoOne: ', store.userInfoOne);
   console.log('UsernameTwo: ', store.userInfoTwo);
-  // console.log('cleanImagesOne: ', store.cleanOne);
-  // console.log('cleanImagesTwo: ', store.cleanTwo);
   console.log('emoOne.count: ', store.emoOne.count);
   console.log('emoOne: ', store.emoOne);
   console.log('emoTwo.count: ', store.emoTwo.count);
   console.log('emoTwo: ', store.emoTwo);
+  console.log('HappyOne: ', store.happyOne.link);
+  console.log('HappyOne: ', store.happyOne.score);
+  console.log('CleanEmo: ', store.cleanEmo);
   console.log(' ');
 });

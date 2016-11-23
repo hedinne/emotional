@@ -15,11 +15,12 @@ import PlayerTwo from 'routes/PlayerTwo';
 export default class ContainerOne extends Component {
 
   componentDidMount() {
-    if (!st.instaTokenLoaded) {
+    if (!st.tokenLoaded) {
       const token = location.hash.split('token=').pop();
 
       if (!token || token.length < 30) {
         browserHistory.push('/');
+        console.log('Push to home');
       } else {
         st.instaToken = token;
       }
@@ -33,7 +34,8 @@ export default class ContainerOne extends Component {
    */
   render() {
 
-    if (st.userInfoOne) {
+    if (st.userOneLoaded) {
+      console.log('should return PlayerTwo');
       return <PlayerTwo />;
     }
     return <PlayerOne />;

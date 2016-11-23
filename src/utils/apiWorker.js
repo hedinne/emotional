@@ -66,6 +66,11 @@ function getEmotionsOne() {
         st.emoOne.emotions.sadness += res.data[y].scores.sadness;
         st.emoOne.emotions.surprise += res.data[y].scores.surprise;
         st.emoOne.count++;
+
+        if (res.data[y].scores.happiness > st.happyOne.score) {
+          st.happyOne.score = res.data[y].scores.happiness;
+          st.happyOne.link = st.cleanOne[i];
+        }
       }
     }).catch(error => console.log(error));
   }
@@ -73,7 +78,6 @@ function getEmotionsOne() {
 
 function getEmotionsTwo() {
   for (let i = 0; i < st.cleanTwo.length; i++) {
-    console.log(i);
     axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
       url: st.cleanTwo[i],
     }, {
@@ -93,6 +97,11 @@ function getEmotionsTwo() {
         st.emoTwo.emotions.sadness += res.data[y].scores.sadness;
         st.emoTwo.emotions.surprise += res.data[y].scores.surprise;
         st.emoTwo.count++;
+
+        if (res.data[y].scores.happiness > st.happyTwo.score) {
+          st.happyTwo.score = res.data[y].scores.happiness;
+          st.happyTwo.link = st.cleanTwo[i];
+        }
       }
     }).catch(error => console.log(error));
   }

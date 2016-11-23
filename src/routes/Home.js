@@ -17,7 +17,43 @@ export default class Home extends Component {
   componentDidMount() {
     if (st.userInfoOne || st.userInfoTwo) {
       st.userInfoOne = {};
+      st.possibleUsersOne = [];
       st.userInfoTwo = {};
+      st.possibleUsersTwo = [];
+      st.happyOne = {
+        score: 0,
+        link: '',
+      };
+      st.happyTwo = {
+        score: 0,
+        link: '',
+      };
+      st.emoOne = {
+        count: 0,
+        emotions: {
+          anger: 0,
+          contempt: 0,
+          disgust: 0,
+          fear: 0,
+          happiness: 0,
+          neutral: 0,
+          sadness: 0,
+          surprise: 0,
+        },
+      };
+      st.emoTwo = {
+        count: 0,
+        emotions: {
+          anger: 0,
+          contempt: 0,
+          disgust: 0,
+          fear: 0,
+          happiness: 0,
+          neutral: 0,
+          sadness: 0,
+          surprise: 0,
+        },
+      };
     }
   }
 

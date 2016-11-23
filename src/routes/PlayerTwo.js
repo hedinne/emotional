@@ -34,29 +34,44 @@ export default class PlayerTwo extends Component {
 
     return (
       <div className={s.host}>
-        <Helmet title="Player One"/>
+        <Helmet title="Player Two" />
         <Segment>
           <div className={s.container}>
 
-            <h2 className={s.heading}>Leitaðu á notenda 2.</h2>
+            <h2 className={s.heading}>  Select Player #2</h2>
             <form onSubmit={this.handleSubmit} className={s.form}>
-              <input type="search" name="username" defaultValue="he" />
-              <input type="submit" value="submit" />
+              <input
+                type="search"
+                name="username"
+                placeholder="Name"
+                className={s.search}
+                autoComplete="off"
+                autoFocus
+              />
+              <input type="submit" value="Find" className={s.button} />
             </form>
-
-            {st.possibleUsersTwo.map((item, index) => (
-              <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
-                <img
-                  src={item.profile_picture}
-                  alt={item.username}
-                />
-                <div>
-                  <h4>{item.full_name}</h4>
-                  <h4>{`Username: ${item.username}`}</h4>
-                  <p>Numer: {index}</p>
+            <div className={s.userWrapper}>
+              {st.possibleUsersTwo.map((item, index) => (
+                <div
+                  key={`Not${index}`}
+                  onClick={() => { this.selectUser(item); }}
+                  className={s.user}
+                  tabIndex="0"
+                >
+                  <img
+                    src={item.profile_picture}
+                    alt={item.username}
+                    className={s.img}
+                  />
+                  <div>
+                    <h4 className={s.title}>
+                      {item.full_name} <br />
+                      - {item.username} -
+                    </h4>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </Segment>
       </div>

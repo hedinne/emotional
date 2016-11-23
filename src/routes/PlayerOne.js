@@ -38,20 +38,34 @@ export default class PlayerOne extends Component {
 
             <h2 className={s.heading}>  Select Player #1</h2>
             <form onSubmit={this.handleSubmit} className={s.form}>
-              <input type="search" name="username" defaultValue="he" className={s.search} />
-              <input type="submit" value="submit" />
+              <input
+                type="search"
+                name="username"
+                placeholder="Name"
+                className={s.search}
+                autoComplete="off"
+                autoFocus
+              />
+              <input type="submit" value="Find" className={s.button} />
             </form>
-            <div>
+            <div className={s.userWrapper}>
               {st.possibleUsersOne.map((item, index) => (
-                <div key={`Not${index}`} onClick={() => { this.selectUser(item); }} >
+                <div
+                  key={`Not${index}`}
+                  onClick={() => { this.selectUser(item); }}
+                  className={s.user}
+                  tabIndex="0"
+                >
                   <img
                     src={item.profile_picture}
                     alt={item.username}
+                    className={s.img}
                   />
                   <div>
-                    <h4>{item.full_name}</h4>
-                    <h4>{`Username: ${item.username}`}</h4>
-                    <p>Numer: {index}</p>
+                    <h4 className={s.title}>
+                      {item.full_name} <br />
+                      - {item.username} -
+                    </h4>
                   </div>
                 </div>
               ))}

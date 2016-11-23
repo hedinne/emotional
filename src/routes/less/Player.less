@@ -28,6 +28,10 @@
   color: #353237;
   font-size: 18px;
 
+  @media (min-width: @min-768) {
+    font-size: 30px;
+  }
+
   @media (min-width: @min-1024) {
     font-size: 40px;
   }
@@ -36,15 +40,58 @@
 .form {
   display: flex;
   justify-content: center;
+
+  margin: 0 0 50px;
 }
 
 .search {
   padding: 10px;
 
   width: 50%;
+  height: 50px;
+
+  font-size: 25px;
 
   background-color: rgba(255, 255, 255, 0.7);
 
   border: 2px solid #fff;
   border-radius: 5px;
+}
+
+.button {
+  padding: 10px 30px;
+  margin-left: 20px;
+
+  height: 50px;
+
+  font-size: 25px;
+
+  background-color: rgba(255, 255, 255, 0.7);
+
+  border: 2px solid #fff;
+  border-radius: 5px;
+}
+
+.userWrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.img {
+  margin: auto;
+  border-radius: 50%;
+}
+
+.user {
+  padding: 3% 5%;
+
+  min-width: 280px;
+
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.title {
+  margin-bottom: 0;
+
+  text-align: center;
 }
