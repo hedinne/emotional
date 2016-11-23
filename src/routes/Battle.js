@@ -30,7 +30,7 @@ export default class Battle extends Component {
                 <img src={st.userInfoOne.profile_picture} className={s.image} alt="Profile" />
                 <h4 className={s.title}>{st.userInfoOne.full_name}</h4>
                 <hr />
-                <p className={s.info}>We found {st.emoTwo.count} faces in the last 20 photos.</p>
+                <p className={s.info}>We found {st.emoOne.count} faces in the last 20 photos.</p>
                 <hr />
                 <p className={s.info}>This is the happiest photo we found.
                   {st.happyOne.link ? (

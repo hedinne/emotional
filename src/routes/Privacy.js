@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import Segment from 'components/segment';
+import s from './less/Home.less';
 
 export default class Privacy extends Component {
 
@@ -10,10 +11,11 @@ export default class Privacy extends Component {
  */
   render() {
     return (
-      <div>
+      <div className={s.host}>
         <Helmet title="Privacy" />
         <Segment>
-          <h1>Privacy / Persónuvernd</h1>
+				<div className={s.container}>
+          <h1 className={s.heading}>Privacy / Persónuvernd</h1>
           <p>
             Mikil áhersla er lögð á að tryggja ábyrga meðferð allra upplýsinga. 
           </p>
@@ -29,6 +31,7 @@ export default class Privacy extends Component {
           <p> 
             Engin ábyrgð er tekin á þeim gögnum sem notandinn veitir leyfi á í gegnum síðuna.
           </p>
+					</div>
         </Segment>
       </div>
     );
