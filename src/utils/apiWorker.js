@@ -8,8 +8,8 @@ const IID = 'cf5856ebccbb459aaba3e64adc37b54b';
 const MKey = '277b88fd75f2417bb893e8b80f069198';
 
 function getUrl() {
-  const redirect = 'http://localhost:3000/players';
-  // const redirect = 'https://emotional-intelligence.herokuapp.com/players';
+  // const redirect = 'http://localhost:3000/players';
+  const redirect = 'https://emotional-intelligence.herokuapp.com/players';
 
   return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token&scope=basic+public_content`;
 }
@@ -25,7 +25,6 @@ function getSelf() {
 }
 
 function getUsersOne(name) {
-  // axios.defaults.headers.get['Access-Control-Allow-Origin'] = '*';
   axios.get(`https://api.instagram.com/v1/users/search?q=${name}&access_token=${st.instaToken}`)
     .then(res => {
       st.possibleUsersOne = res.data.data;

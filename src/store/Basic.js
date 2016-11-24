@@ -155,17 +155,17 @@ const store = new BasicStore();
 
 export default store;
 
-autorun(() => {
-  console.log(' ');
-  console.log('Token is loaded: ', store.instaToken);
-  console.log('UserInfoOne: ', store.userInfoOne);
-  console.log('UsernameTwo: ', store.userInfoTwo);
-  console.log('emoOne.count: ', store.emoOne.count);
-  console.log('emoOne: ', store.emoOne);
-  console.log('emoTwo.count: ', store.emoTwo.count);
-  console.log('emoTwo: ', store.emoTwo);
-  console.log('HappyOne: ', store.happyOne.link);
-  console.log('HappyOne: ', store.happyOne.score);
-  console.log('CleanEmo: ', store.cleanEmo);
-  console.log(' ');
-});
+// autorun(() => {
+//   console.log(' ');
+//   console.log('Token is loaded: ', store.instaToken);
+//   console.log('UserInfoOne: ', store.userInfoOne);
+//   console.log('UsernameTwo: ', store.userInfoTwo);
+//   console.log('emoOne.count: ', store.emoOne.count);
+//   console.log('emoOne: ', store.emoOne);
+//   console.log('emoTwo.count: ', store.emoTwo.count);
+//   console.log('emoTwo: ', store.emoTwo);
+//   console.log('HappyOne: ', store.happyOne.link);
+//   console.log('HappyOne: ', store.happyOne.score);
+//   console.log('CleanEmo: ', store.cleanEmo);
+//   console.log(' ');
+// });
