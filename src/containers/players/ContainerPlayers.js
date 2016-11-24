@@ -20,7 +20,6 @@ export default class ContainerOne extends Component {
 
       if (!token || token.length < 30) {
         browserHistory.push('/');
-        console.log('Push to home');
       } else {
         st.instaToken = token;
       }
@@ -35,7 +34,6 @@ export default class ContainerOne extends Component {
   render() {
 
     if (st.userOneLoaded) {
-      console.log('should return PlayerTwo');
       return <PlayerTwo />;
     }
     return <PlayerOne />;

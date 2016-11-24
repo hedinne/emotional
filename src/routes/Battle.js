@@ -26,7 +26,7 @@ export default class Battle extends Component {
 
             <div className={s.users}>
               <div className={s.profile}>
-                <h3 className={s.playerHeading}>Player 1</h3>
+                <h3 className={s.playerHeading}>Player One</h3>
                 <img src={st.userInfoOne.profile_picture} className={s.image} alt="Profile" />
                 <h4 className={s.title}>{st.userInfoOne.full_name}</h4>
                 <hr />
@@ -50,7 +50,7 @@ export default class Battle extends Component {
               </div>
 
               <div className={s.profile}>
-                <h3 className={s.playerHeading}>Player 2</h3>
+                <h3 className={s.playerHeading}>Player Two</h3>
                 <img src={st.userInfoTwo.profile_picture} className={s.image} alt="Profile" />
                 <h4 className={s.title}>{st.userInfoTwo.full_name}</h4>
                 <hr />
@@ -75,6 +75,19 @@ export default class Battle extends Component {
             </div>
 
             <div className={s.chart}>
+              {st.getHappiest && (
+                <div>
+                  <p className={s.info}>
+                    {st.getHappiest[0]} winns with a average happiness score
+                    of {st.getHappiest[1].toFixed(2)}.<br />
+                    While {st.getHappiest[2]} only scored {st.getHappiest[3].toFixed(2)}.
+                  </p>
+                  <hr />
+                </div>
+              )}
+              <p className={s.info}>
+								Here you can see the emotional distribution of each player.
+							</p>
               <RadarChart cx={250} cy={200} width={480} height={400} data={st.cleanEmo}>
                 <Radar
                   name={st.userInfoOne.full_name}

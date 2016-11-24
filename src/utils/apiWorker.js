@@ -47,63 +47,67 @@ function getUsersTwo(name) {
 
 function getEmotionsOne() {
   for (let i = 0; i < st.cleanOne.length; i++) {
-    axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
-      url: st.cleanOne[i],
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': MKey,
-      },
-    })
-    .then((res) => {
-      for (let y = 0; y < res.data.length; y++) {
-        st.emoOne.emotions.anger += res.data[y].scores.anger;
-        st.emoOne.emotions.contempt += res.data[y].scores.contempt;
-        st.emoOne.emotions.disgust += res.data[y].scores.disgust;
-        st.emoOne.emotions.fear += res.data[y].scores.fear;
-        st.emoOne.emotions.happiness += res.data[y].scores.happiness;
-        st.emoOne.emotions.neutral += res.data[y].scores.neutral;
-        st.emoOne.emotions.sadness += res.data[y].scores.sadness;
-        st.emoOne.emotions.surprise += res.data[y].scores.surprise;
-        st.emoOne.count++;
+    setTimeout(() => {
+      axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
+        url: st.cleanOne[i],
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Ocp-Apim-Subscription-Key': MKey,
+        },
+      })
+      .then((res) => {
+        for (let y = 0; y < res.data.length; y++) {
+          st.emoOne.emotions.anger += res.data[y].scores.anger;
+          st.emoOne.emotions.contempt += res.data[y].scores.contempt;
+          st.emoOne.emotions.disgust += res.data[y].scores.disgust;
+          st.emoOne.emotions.fear += res.data[y].scores.fear;
+          st.emoOne.emotions.happiness += res.data[y].scores.happiness;
+          st.emoOne.emotions.neutral += res.data[y].scores.neutral;
+          st.emoOne.emotions.sadness += res.data[y].scores.sadness;
+          st.emoOne.emotions.surprise += res.data[y].scores.surprise;
+          st.emoOne.count++;
 
-        if (res.data[y].scores.happiness > st.happyOne.score) {
-          st.happyOne.score = res.data[y].scores.happiness;
-          st.happyOne.link = st.cleanOne[i];
+          if (res.data[y].scores.happiness > st.happyOne.score) {
+            st.happyOne.score = res.data[y].scores.happiness;
+            st.happyOne.link = st.cleanOne[i];
+          }
         }
-      }
-    }).catch(error => console.log(error));
+      }).catch(error => console.log(error));
+    }, i * 300);
   }
 }
 
 function getEmotionsTwo() {
   for (let i = 0; i < st.cleanTwo.length; i++) {
-    axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
-      url: st.cleanTwo[i],
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Ocp-Apim-Subscription-Key': MKey,
-      },
-    })
-    .then((res) => {
-      for (let y = 0; y < res.data.length; y++) {
-        st.emoTwo.emotions.anger += res.data[y].scores.anger;
-        st.emoTwo.emotions.contempt += res.data[y].scores.contempt;
-        st.emoTwo.emotions.disgust += res.data[y].scores.disgust;
-        st.emoTwo.emotions.fear += res.data[y].scores.fear;
-        st.emoTwo.emotions.happiness += res.data[y].scores.happiness;
-        st.emoTwo.emotions.neutral += res.data[y].scores.neutral;
-        st.emoTwo.emotions.sadness += res.data[y].scores.sadness;
-        st.emoTwo.emotions.surprise += res.data[y].scores.surprise;
-        st.emoTwo.count++;
+    setTimeout(() => {
+      axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
+        url: st.cleanTwo[i],
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Ocp-Apim-Subscription-Key': MKey,
+        },
+      })
+      .then((res) => {
+        for (let y = 0; y < res.data.length; y++) {
+          st.emoTwo.emotions.anger += res.data[y].scores.anger;
+          st.emoTwo.emotions.contempt += res.data[y].scores.contempt;
+          st.emoTwo.emotions.disgust += res.data[y].scores.disgust;
+          st.emoTwo.emotions.fear += res.data[y].scores.fear;
+          st.emoTwo.emotions.happiness += res.data[y].scores.happiness;
+          st.emoTwo.emotions.neutral += res.data[y].scores.neutral;
+          st.emoTwo.emotions.sadness += res.data[y].scores.sadness;
+          st.emoTwo.emotions.surprise += res.data[y].scores.surprise;
+          st.emoTwo.count++;
 
-        if (res.data[y].scores.happiness > st.happyTwo.score) {
-          st.happyTwo.score = res.data[y].scores.happiness;
-          st.happyTwo.link = st.cleanTwo[i];
+          if (res.data[y].scores.happiness > st.happyTwo.score) {
+            st.happyTwo.score = res.data[y].scores.happiness;
+            st.happyTwo.link = st.cleanTwo[i];
+          }
         }
-      }
-    }).catch(error => console.log(error));
+      }).catch(error => console.log(error));
+    }, i * 250);
   }
 }
 

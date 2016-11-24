@@ -6,7 +6,7 @@ export default {
     lang: 'en',
   },
   title: 'Home',
-  titleTemplate: 'Emotional Intelligence - %s',
+  titleTemplate: 'dual8 - %s',
   defaultTemplate: '???',
   meta: [{
     name: 'msapplication-TileColor',
@@ -23,10 +23,10 @@ export default {
   },
   { name: 'twitter:card', content: 'summary_large_image' },
   { name: 'twitter:image', content: require('!file!assets/favicon/android-chrome-192x192.png') },
-  { name: 'twitter:site', content: '@emo' },
-  { name: 'twitter:creator', content: '@emo' },
-  { name: 'twitter:description', content: 'emo description text here!' },
-  { name: 'twitter:title', content: 'emo' },
+  { name: 'twitter:site', content: '@dual8' },
+  { name: 'twitter:creator', content: '@dual8' },
+  { name: 'twitter:description', content: 'dual8 description text here!' },
+  { name: 'twitter:title', content: 'dual8' },
   ],
   link: [{
     rel: 'manifest',
