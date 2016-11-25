@@ -90,11 +90,11 @@ export default class Home extends Component {
                 </div>
               </Link>
             ) : (
-            <a href={getUrl()} className={s.anchor}>
-              <div className={s.button}>
-                Let's play!
-              </div>
-            </a>
+              <a href={getUrl()} className={s.anchor}>
+                <div className={s.button}>
+                  Let's play!
+                </div>
+              </a>
             )}
           </div>
         </Segment>

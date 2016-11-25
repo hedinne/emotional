@@ -18,7 +18,7 @@ export default class PlayerOne extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    api.getUsersOne(e.target.username.value);
+    api.getUsers(e.target.username.value, 0);
   }
 
   selectUser(i) {

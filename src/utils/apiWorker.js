@@ -1,10 +1,7 @@
-// /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
-
 import st from 'store/Basic';
 import axios from 'axios';
 
 const IID = 'cf5856ebccbb459aaba3e64adc37b54b';
-// const IID2 = 'b1ed5d4372b04febbca23d3e16dbf3e4';
 const MKey = '277b88fd75f2417bb893e8b80f069198';
 
 function getUrl() {
@@ -14,40 +11,22 @@ function getUrl() {
   return `https://api.instagram.com/oauth/authorize/?client_id=${IID}&redirect_uri=${redirect}&response_type=token&scope=basic+public_content`;
 }
 
-function getSelf() {
-  axios.get(`https://api.instagram.com/v1/users/self/?access_token=${st.instaToken}`)
-    .then((res) => {
-      st.selfInfo = res.data;
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-}
-
-function getUsersOne(name) {
+function getUsers(name, n) {
   axios.get(`https://api.instagram.com/v1/users/search?q=${name}&access_token=${st.instaToken}`)
     .then(res => {
-      st.possibleUsersOne = res.data.data;
+      if (n === 0) {
+        st.possibleUsersOne = res.data.data;
+      } else {
+        st.possibleUsersTwo = res.data.data;
+      }
     })
-    .catch(error => {
-      console.log(error);
-    });
-}
-
-function getUsersTwo(name) {
-  axios.get(`https://api.instagram.com/v1/users/search?q=${name}&access_token=${st.instaToken}`)
-    .then(res => {
-      st.possibleUsersTwo = res.data.data;
-    })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(error => console.log(error));
 }
 
 
 function getEmotionsOne() {
   for (let i = 0; i < st.cleanOne.length; i++) {
-    setTimeout(() => {
+    setTimeout(() => { // to slow down the requests, so the api dosn't freakout.
       axios.post('https://api.projectoxford.ai/emotion/v1.0/recognize', {
         url: st.cleanOne[i],
       }, {
@@ -141,10 +120,8 @@ function getImagesTwo(count) {
 module.exports = {
   getImagesOne,
   getImagesTwo,
-  getSelf,
   getUrl,
-  getUsersOne,
-  getUsersTwo,
+  getUsers,
   getEmotionsOne,
   getEmotionsTwo,
 };

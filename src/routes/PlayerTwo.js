@@ -19,7 +19,7 @@ export default class PlayerTwo extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    api.getUsersTwo(e.target.username.value);
+    api.getUsers(e.target.username.value, 1);
   }
 
   selectUser(i) {
