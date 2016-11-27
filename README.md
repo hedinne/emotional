@@ -1,18 +1,20 @@
-# Emotional Intelligence
+# dual8
 
+* Heroku: https://dual8.herokuapp.com
+* Github: https://github.com/hedinne/emotional
 
-## Install
+### To Install packages.
 
 ```bash
 $ npm install
 ```
 
-## Run dev
+### Run dev
 ```bash
 $ npm run dev
 ```
 
-## Run release
+### Run release
 ```bash
 $ npm start
 ```
