@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Emotional Intelligence",
   "engines": {
-    "node": ">=7.0.0",
-    "npm": ">=3.8 <4"
+    "node": ">=8.1.4",
+    "npm": ">=3.8"
   },
   "main": "index.js",
   "scripts": {
@@ -21,11 +21,7 @@
     "type": "git",
     "url": "git+https://github.com/hedinne/emotional.git"
   },
-  "keywords": [
-    "react",
-    "webpack",
-    "universal"
-  ],
+  "keywords": ["react", "webpack", "universal"],
   "author": "Hedinn Eiriksson.",
   "license": "MIT",
   "bugs": {
