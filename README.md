@@ -1,6 +1,5 @@
 # dual8
 
-* Heroku: https://dual8.herokuapp.com
 * Github: https://github.com/hedinne/emotional
 
 ### To Install packages.
